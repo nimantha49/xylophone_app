@@ -13,81 +13,41 @@ class Xylophone extends StatefulWidget {
 }
 
 class _XylophoneState extends State<Xylophone> {
+//function1 (IT CAN CHANGE THE SOUND NUMBER)
   void playSound(int soundNumber) {
     final player = AudioPlayer();
     player.play(AssetSource('asset/note$soundNumber.mp3'));
+  }
+
+  // void changeColor(String color) {
+  //   String getColor = color;
+  // }
+
+  Expanded buildKey({color, soundNumber}) {
+    return Expanded(
+      child: TextButton(
+          style: TextButton.styleFrom(backgroundColor: color),
+          onPressed: () {
+            playSound(soundNumber);
+          },
+          child: const Text(
+            '',
+            style: TextStyle(color: Colors.black),
+          )),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
             child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(1);
-                },
-                child: const Text(
-                  'NOTE 1',
-                  style: TextStyle(color: Colors.black),
-                )),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(2);
-                },
-                child: const Text(
-                  'NOTE 2',
-                  style: TextStyle(color: Colors.black),
-                )),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(3);
-                },
-                child: const Text(
-                  'NOTE 3',
-                  style: TextStyle(color: Colors.black),
-                )),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(4);
-                },
-                child: const Text(
-                  'NOTE 4',
-                  style: TextStyle(color: Colors.black),
-                )),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(5);
-                },
-                child: const Text(
-                  'NOTE 5',
-                  style: TextStyle(color: Colors.black),
-                )),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(6);
-                },
-                child: const Text(
-                  'NOTE 6',
-                  style: TextStyle(color: Colors.black),
-                )),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.green),
-                onPressed: () {
-                  playSound(7);
-                },
-                child: const Text(
-                  'NOTE 7',
-                  style: TextStyle(color: Colors.black),
-                )),
+            buildKey(color: Colors.red, soundNumber: 1),
+            buildKey(),
           ],
         )),
       ),
