@@ -19,10 +19,6 @@ class _XylophoneState extends State<Xylophone> {
     player.play(AssetSource('asset/note$soundNumber.mp3'));
   }
 
-  // void changeColor(String color) {
-  //   String getColor = color;
-  // }
-
   Expanded buildKey({color, soundNumber}) {
     return Expanded(
       child: TextButton(
@@ -47,7 +43,12 @@ class _XylophoneState extends State<Xylophone> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             buildKey(color: Colors.red, soundNumber: 1),
-            buildKey(),
+            buildKey(color: Colors.orange, soundNumber: 2),
+            buildKey(color: Colors.yellow, soundNumber: 3),
+            buildKey(color: Colors.greenAccent, soundNumber: 4),
+            buildKey(color: Colors.teal, soundNumber: 5),
+            buildKey(color: Colors.green, soundNumber: 6),
+            buildKey(color: Colors.blue, soundNumber: 7),
           ],
         )),
       ),
